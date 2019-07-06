@@ -1,0 +1,39 @@
+{
+  "name": "brubank-challenge",
+  "version": "1.0.0",
+  "description": "Open source & global warming",
+  "main": "./src/public/handler.js",
+  "scripts": {
+    "start": "serverless offline start --skipCacheInvalidation",
+    "test": "jest --coverage",
+    "lint": "eslint --fix '**/*.js'"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "keywords": [],
+  "author": "Mauro Sevillano",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "serverless": "^1.46.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-source-map-support": "^2.0.1",
+    "eslint": "^6.0.1",
+    "eslint-config-google": "^0.13.0",
+    "jest": "^24.8.0",
+    "jsdoc": "^3.6.2",
+    "pre-commit": "^1.2.2",
+    "serverless-offline": "^5.6.0",
+    "serverless-webpack": "^5.3.1",
+    "webpack": "^4.35.2",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

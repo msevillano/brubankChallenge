@@ -1,0 +1,27 @@
+service: brubank-challenge
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: ${opt:region, 'us-east-1'}
+  stage: ${opt:stage, 'local'}
+  environment: ${file(./config/${self:provider.stage}.yml)}
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+  serverless-offline:
+    port: 4000
+
+functions:
+  status:
+    handler: src/public/handler.getStatus
+    events:
+      - http:
+          path: /status
+          method: get
