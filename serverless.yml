@@ -23,5 +23,5 @@ functions:
     handler: src/public/handler.getData
     events:
       - http:
-          path: /status
+          path: /weathertemperatureavg
           method: get

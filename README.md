@@ -51,6 +51,8 @@ Para correr los unit-tests `npm test` (requiere tener instaladas las dependencia
 
 para iniciar el proyecto `npm start` (requiere tener instaladas las dependencias).
 
+una vez iniciado el proyecto, la API se puede consultar de la siguiente manera: `localhost:4000/weathertemperatureavg?user=<yourGitHubUserNameGoesHere>`
+
 ## Estructura del proyecto
 
 ```txt

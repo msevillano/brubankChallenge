@@ -3,6 +3,13 @@ import howIsTheWeather from '../../src/services/weather';
 
 jest.mock('request-promise');
 
+test('howIsTheWeather(location, date): it should throw if location param is missing', async () => {
+  await howIsTheWeather(undefined, '2000-1-1').catch((error) => {
+    expect(error.statusCode).toBe(400);
+    expect(error.message).toBe('location is required to perform this search');
+  });
+});
+
 test('howIsTheWeather(location, date): it should throw if temp in ºC is missing', async () => {
   request.mockImplementation(() => Promise.resolve({
     data: {

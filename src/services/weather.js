@@ -13,6 +13,7 @@ const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
  * @return {Number} - temperature of the city-date given.
  */
 async function howIsTheWeather(location, date) {
+  if (!location) throw new BasicError(400, `location is required to perform this search`);
   const weather = await request(createOptions(
       `${WEATHER_API_URL}?q=${location}&date=${date}&&tp=24&format=json&key=${WEATHER_API_KEY}`));
   if (!weather.data.weather) throw new BasicError(400, `info for ${location} at ${date} is unavailable`);
