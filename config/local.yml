@@ -1,1 +1,6 @@
 ENV: 'local'
+
+GITHUB_API_URL: 'https://api.github.com'
+
+WEATHER_API_URL: 'https://api.worldweatheronline.com/premium/v1/past-weather.ashx'
+WEATHER_API_KEY: 'ba88605bed1846e6b6711317190707'

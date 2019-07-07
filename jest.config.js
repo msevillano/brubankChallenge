@@ -5,5 +5,6 @@ module.exports = {
     '/node_modules/',
     '/test/',
   ],
+  globalSetup: './test/setup/setup.js',
   testEnvironment: 'node',
 };

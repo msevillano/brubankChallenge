@@ -20,7 +20,7 @@ custom:
 
 functions:
   status:
-    handler: src/public/handler.getStatus
+    handler: src/public/handler.getData
     events:
       - http:
           path: /status
