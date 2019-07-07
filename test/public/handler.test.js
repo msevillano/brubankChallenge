@@ -50,6 +50,24 @@ test('getData(event): it should retrieve the amount of repos and the avg tempera
       login: 'testSubject',
       repos_url: 'https://fakeapi.com/users/testSubject/repos',
       location: 'Test Location',
+      getReposCreationDates: () => {return []}
+    }
+  });
+  getWeatherConditions.mockImplementation(() => {
+    return 24
+  });
+
+  const result = await getData({queryStringParameters: {user: 'testSubject'}});
+  expect(result.statusCode).toBe(200);
+  expect(result.body).toBe('{"repo_amount":0,"average_temperature":null}');
+});
+
+test('getData(event): it should retrieve the amount of repos and the avg temperature', async () => {
+  GitHubProfile.findUser.mockImplementation(() => {
+    return {
+      login: 'testSubject',
+      repos_url: 'https://fakeapi.com/users/testSubject/repos',
+      location: 'Test Location',
       getReposCreationDates: () => {return [
         new Date('2000-01-01T00:00:00Z'),
         new Date('2000-01-01T00:00:00Z'),
