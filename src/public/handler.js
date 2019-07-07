@@ -12,13 +12,15 @@ export async function getData(event) {
   try {
     const profile = await GitHubProfile.findUser(event.queryStringParameters.user);
     const reposData = await profile.getReposCreationDates();
-    if (reposData.length === 0) return {
-      statusCode: 200,
-      body: JSON.stringify({
-        repo_amount: 0,
-        average_temperature: null,
-      }),
-    };
+    if (reposData.length === 0) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({
+          repo_amount: 0,
+          average_temperature: null,
+        }),
+      };
+    }
     const temperatures = await Promise.all(reposData.map( async (date) => {
       return await getWeatherConditions(profile.location, formatDate(date));
     }));
