@@ -9,6 +9,12 @@ import formatDate from '../utils/date/formatDate';
  * @return {Object} - it returns an HTTP response.
  */
 export async function getData(event) {
+  if (!event.queryStringParameters || !event.queryStringParameters.user) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({message: 'user is a required parameter'}),
+    };
+  }
   try {
     const profile = await GitHubProfile.findUser(event.queryStringParameters.user);
     const reposData = await profile.getReposCreationDates();

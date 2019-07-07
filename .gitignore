@@ -1,0 +1,20 @@
+# JetBrains Folders
+.idea
+
+# OS generated files
+.DS_Store
+.DS_Store?
+
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Tests
+.nyc_output
+coverage
+
+#webpack
+.webpack

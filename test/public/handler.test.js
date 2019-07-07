@@ -7,6 +7,13 @@ jest.mock('../../src/services/GitHubProfile');
 jest.mock('../../src/services/weather');
 
 test('getData(event): it should retrieve error status code & message', async () => {
+  const result = await getData({queryStringParameters: {}});
+
+  expect(result.statusCode).toBe(400);
+  expect(result.body).toBe('{"message":"user is a required parameter"}');
+});
+
+test('getData(event): it should retrieve error status code & message', async () => {
   GitHubProfile.findUser.mockImplementation(() => {
     return {
       login: 'testSubject',
