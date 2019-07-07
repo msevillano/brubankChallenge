@@ -43,7 +43,7 @@ de la carpeta src).
 
 ## Inicializacion del proyecto
 
-Para instalarlos: `brew install node@10`.
+Para instalar node y npm en Mac(requiere HomeBrew): `brew install node@10`.
 
 Para instalar las dependencias del proyecto: `npm i` estando en el root del proyecto.
 
